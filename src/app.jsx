@@ -1,7 +1,9 @@
+import { Home } from "./components/Home/Home";
+
 export const App = () => {
 	return (
-		<>
-			<h1>test</h1>
-		</>
+		<main className="app__wrapper">
+			<Home />
+		</main>
 	);
 };

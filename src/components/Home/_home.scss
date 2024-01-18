@@ -1,0 +1,40 @@
+.home__wrapper {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+	width: 100%;
+
+	.home__center {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		align-items: center;
+
+		h1 {
+			line-height: 72px;
+		}
+
+		p,
+		button {
+			font-style: italic;
+		}
+
+		button {
+			color: $sewer-highlight;
+			border: 1px solid $sewer-highlight;
+			transition: ease-in-out 0.15s;
+			font-size: 12px;
+			padding: 7.5px;
+			font-weight: 500;
+			margin-top: 15px;
+			cursor: pointer;
+
+			&:hover {
+				border: 1px solid $sewer-yellow;
+				color: $sewer-white;
+			}
+		}
+	}
+}
