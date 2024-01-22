@@ -3,7 +3,7 @@ import { Footer } from "../Footer/Footer";
 
 export const Home = () => {
 	const openDiscordLink = () => {
-		window.open("https://discord.gg/SewerAim", "_blank");
+		window.open("https://discord.gg/HnWpt2WN49", "_blank");
 	};
 
 	return (

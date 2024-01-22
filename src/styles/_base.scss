@@ -1,8 +1,8 @@
 @font-face {
-	font-family: "Waffelstein";
+	font-family: "drum_and_bass_ldr";
 	src:
-		local("Waffelstein"),
-		url(./Waffelstein-Stencil.otf) format("woff");
+		local("drum_and_bass_ldr"),
+		url(./drum_and_bass_ldr.ttf) format("woff");
 }
 
 $sewer-black: #111111;
@@ -12,7 +12,7 @@ $sewer-grey: #cacaca;
 $sewer-yellow: #f6ce24;
 $sewer-dark-yellow: #ad9424;
 
-$font-size-h1: 84px;
+$font-size-h1: 72px;
 $font-size-h2: 36px;
 $font-size-h3: 32px;
 $font-size-h4: 28px;
@@ -79,7 +79,7 @@ body {
 	h5,
 	h6,
 	li {
-		font-family: "Waffelstein", cursive;
+		font-family: "drum_and_bass_ldr", cursive;
 		color: $sewer-white;
 		text-align: center;
 		font-weight: 700;

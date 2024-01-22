@@ -8,7 +8,7 @@ export const Footer = () => {
 				<a href="https://twitter.com/SewerAimers" target="_blank">
 					<XIcon />
 				</a>
-				<a href="https://www.discord.gg/SewerAim" target="_blank">
+				<a href="https://discord.gg/HnWpt2WN49" target="_blank">
 					<DiscordIcon />
 				</a>
 			</div>
