@@ -1,0 +1,29 @@
+.navigation__wrapper {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+	align-items: center;
+	margin-right: 15px;
+	width: auto;
+
+	ul {
+		display: flex;
+		justify-content: center;
+		flex-direction: row;
+		align-items: center;
+		width: auto;
+		gap: 15px;
+
+		li {
+			a {
+				transition: ease-in-out 0.15s;
+				font-style: italic;
+				color: $sewer-grey;
+
+				&:hover {
+					color: $sewer-yellow;
+				}
+			}
+		}
+	}
+}
