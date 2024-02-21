@@ -6,13 +6,7 @@ export const Navigation = () => {
 					<a href="/">Home</a>
 				</li>
 				<li>
-					<a href="#placeholder3">Improve</a>
-				</li>
-				<li>
-					<a href="#placeholder4">Optimize</a>
-				</li>
-				<li>
-					<a href="#placeholder4">Apply</a>
+					<a href="/timer">Operation-Timer</a>
 				</li>
 				<li>
 					<a href="/members">Members</a>
