@@ -35,6 +35,7 @@
 			font-size: 18px;
 			background-color: $sewer-black;
 			color: #fff;
+			width: 290px;
 			border: 1px solid $sewer-highlight;
 			border-radius: 5px;
 			cursor: pointer;
@@ -62,6 +63,10 @@
 			width: 290px;
 			margin: 15px;
 			gap: 15px;
+
+			button {
+				width: 260px;
+			}
 
 			h2 {
 				font-family: "HELVETICA", cursive;
