@@ -33,15 +33,6 @@ export const Timer = () => {
 				<p>
 					{days} days, {hours} hours, {minutes} minutes, {seconds} seconds
 				</p>
-				<iframe
-					width="640"
-					height="360"
-					src="https://www.youtube.com/embed/z2IWGjHg-Ms"
-					title="CS:GO Operation Riptide Tomb Stone Trailer"
-					frameborder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowfullscreen
-				></iframe>
 			</div>
 			<Footer />
 		</section>
