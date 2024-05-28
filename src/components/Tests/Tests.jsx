@@ -6,19 +6,23 @@ export const Tests = () => {
 	const [gameStarted, setGameStarted] = useState(false);
 	const [showRed, setShowRed] = useState(true);
 	const [reactionTime, setReactionTime] = useState(null);
-	const [timerStart, setTimerStart] = useState(null);
 	const [greenAppearTime, setGreenAppearTime] = useState(null);
-	const [calibrationOffset, setCalibrationOffset] = useState(0);
 	const [leaderboard, setLeaderboard] = useState([]);
+
+	const CALIBRATION_OFFSET = 80;
 
 	const startGame = () => {
 		setShowRed(true);
-		setTimerStart(performance.now());
-		const appearTime = performance.now() + (Math.random() * 2000 + 1000);
-		setGreenAppearTime(appearTime);
+		const currentTime = performance.now();
+		const appearTime = currentTime + Math.random() * 2000 + 1000; // Random time between 1 and 3 seconds from now.
+
+		const timeout = appearTime - currentTime;
 		setTimeout(() => {
-			setShowRed(false);
-		}, appearTime - performance.now());
+			requestAnimationFrame(() => {
+				setShowRed(false);
+				setGreenAppearTime(performance.now()); // Set at the exact time of change
+			});
+		}, timeout);
 	};
 
 	const handleStartGame = () => {
@@ -28,28 +32,24 @@ export const Tests = () => {
 	};
 
 	const handleColorClick = () => {
-		if (!gameStarted && reactionTime === null) {
-			alert("Click the button to start the test first!");
+		if (!gameStarted || showRed) {
+			alert("Please start the game and wait for the green box to appear!");
 			return;
 		}
 
-		if (showRed) {
-			alert("Wait for the green box to appear!");
-			return;
-		}
+		requestAnimationFrame(() => {
+			const endTime = performance.now();
+			const rawReactionTime = endTime - greenAppearTime;
+			const adjustedReactionTime = rawReactionTime - CALIBRATION_OFFSET;
 
-		const endTime = performance.now();
-		if (endTime >= greenAppearTime) {
-			const reaction = 1000 + (endTime - greenAppearTime - calibrationOffset);
-			setReactionTime(reaction);
+			setReactionTime(adjustedReactionTime);
 			setGameStarted(false);
-			saveResult(reaction);
-		} else {
-			alert("Wait for the green box to appear!");
-		}
+			saveResult(adjustedReactionTime);
+		});
 	};
 
 	const resetTest = () => {
+		setShowRed(true);
 		setReactionTime(null);
 		setGameStarted(false);
 	};
@@ -63,7 +63,7 @@ export const Tests = () => {
 			.reverse()
 			.join("/");
 		const result = {
-			reactionTime: reactionTime,
+			reactionTime,
 			date: formattedDate,
 		};
 		const updatedLeaderboard = [...leaderboard, result]
@@ -95,21 +95,6 @@ export const Tests = () => {
 			setLeaderboard([]);
 		}
 	};
-
-	useEffect(() => {
-		const calibrate = () => {
-			const calibrationStartTime = performance.now();
-			setTimeout(() => {
-				const calibrationEndTime = performance.now();
-				const calibrationTime = calibrationEndTime - calibrationStartTime;
-				setCalibrationOffset(calibrationTime);
-			}, 1000);
-		};
-
-		calibrate();
-
-		return () => clearTimeout(calibrate);
-	}, []);
 
 	useEffect(() => {
 		const storedLeaderboard = localStorage.getItem("reactionTimeLeaderboard");
@@ -146,7 +131,7 @@ export const Tests = () => {
 					<ul>
 						{leaderboard.map((result, index) => (
 							<li key={index}>
-								<span>{`${result.date}`}</span>-
+								<span>{`${result.date}`}</span> -
 								<span>{`${result.reactionTime.toFixed(2)} milliseconds`}</span>
 								<button onClick={() => deleteResult(index)}>X</button>
 							</li>

@@ -20,7 +20,7 @@
 			justify-content: center;
 			flex-direction: column;
 			align-items: center;
-			border: 1px solid $sewer-grey;
+			border: 1px solid #1b1b1b;
 			border-radius: 15px;
 			text-align: center;
 			max-width: 300px;
@@ -29,7 +29,12 @@
 
 			img {
 				filter: grayscale(100%);
+				transition: ease-in-out 0.15s;
 				border-radius: 15px;
+
+				&:hover {
+					filter: grayscale(0%);
+				}
 			}
 
 			a,

@@ -2,51 +2,102 @@ import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
 
 export const Members = () => {
-	const memberList = [
+	const memberCategories = [
 		{
-			img: "https://i.imgur.com/4uAKcSR.jpeg",
-			name: "ratte",
-			title: "boss & founder",
-			description:
-				"the boss, the ultimate f*cking twitter femboy - there's literally no one better.",
-			twitter: "https://twitter.com/rattecs",
+			title: "founders",
+			list: [
+				{
+					img: "https://i.imgur.com/mBmiJpj.png",
+					name: "ratte",
+					title: "boss & founder",
+					description: "sewer king, the main man.",
+					twitter: "https://twitter.com/rattecs",
+				},
+				{
+					img: "https://i.imgur.com/GMZOJyH.jpeg",
+					name: "ext",
+					title: "founder",
+					description: "20, lithuanian counter-strike goat.",
+					twitter: "https://twitter.com/extcs2",
+				},
+				{
+					img: "https://i.imgur.com/zqTcTgp.jpeg",
+					name: "nex",
+					title: "founder",
+					description: "23, scarlxrd, cs2 player and skin collector.",
+					twitter: "https://twitter.com/Nexx_zz",
+				},
+			],
 		},
 		{
-			img: "https://pbs.twimg.com/profile_images/1749560353699115008/GtIzq-I6_400x400.jpg",
-			name: "ext",
-			title: "founder",
-			description:
-				"20, lithuanian counter-strike shitter and upcoming prodigy.",
-			twitter: "https://twitter.com/extcs2",
+			title: "originals",
+			list: [
+				{
+					img: "https://i.imgur.com/h6Sa4FJ.jpeg",
+					name: "baker",
+					title: "sewer og",
+					description: "cs enjoyer, cavalier clothing - founder.",
+					twitter: "https://twitter.com/BayKaru",
+				},
+				{
+					img: "https://i.imgur.com/7k5J7un.jpeg",
+					name: "jude",
+					title: "sewer og",
+					description: "23, scarlxrd, cs2 player and skin collector.",
+					twitter: "https://twitter.com/JudeCS2",
+				},
+				{
+					img: "https://i.imgur.com/G3oUr6Q.jpeg",
+					name: "lsh",
+					title: "sewer og",
+					description: "swedish young gun.",
+					twitter: "https://twitter.com/lordshitheads",
+				},
+			],
 		},
 		{
-			img: "https://pbs.twimg.com/profile_images/1758303047162253312/seuvj7Ng_400x400.jpg",
-			name: "nex",
-			title: "founder",
-			description:
-				"23, scarlxrd, cs2 player and skin collector, level 5 faceit and mid peeking rat.",
-			twitter: "https://twitter.com/Nexx_zz",
+			title: "members",
+			list: [
+				{
+					img: "https://i.imgur.com/56SnJwN.jpeg",
+					name: "nakki",
+					title: "sewer aimer",
+					description: "19, finnish aimer boy.",
+					twitter: "https://twitter.com/nakkifps",
+				},
+				{
+					img: "https://i.imgur.com/mWbqSDW.jpeg",
+					name: "lxr",
+					title: "sewer aimer",
+					description: "jamaican cs goat",
+					twitter: "https://twitter.com/LxRcs_",
+				},
+			],
 		},
 	];
+
+	const renderMemberList = (members) =>
+		members.map((item) => (
+			<div className="member__container">
+				<img src={item.img} alt="no image provided atm." />
+				<h2>{item.name}</h2>
+				<p>{item.title}</p>
+				<p>{item.description}</p>
+				<a href={item.twitter} target="_blank">
+					twitter
+				</a>
+			</div>
+		));
 
 	return (
 		<section className="members__wrapper">
 			<Header />
-			<div className="members__list">
-				{memberList.map((item) => {
-					return (
-						<div className="member__container">
-							<img src={item.img} alt="no image provided atm." />
-							<h2>{item.name}</h2>
-							<p>{item.title}</p>
-							<p>{item.description}</p>
-							<a href={item.twitter} target="_blank">
-								twitter
-							</a>
-						</div>
-					);
-				})}
-			</div>
+			{memberCategories.map((category) => (
+				<>
+					<h1>{category.title}</h1>
+					<div className="members__list">{renderMemberList(category.list)}</div>
+				</>
+			))}
 			<Footer />
 		</section>
 	);

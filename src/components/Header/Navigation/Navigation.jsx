@@ -6,7 +6,10 @@ export const Navigation = () => {
 					<a href="/">Home</a>
 				</li>
 				<li>
-					<a href="/timer">Operation-Timer</a>
+					<a href="/timer">Operation</a>
+				</li>
+				<li>
+					<a href="/tests">Reaction</a>
 				</li>
 				<li>
 					<a href="/members">Members</a>
