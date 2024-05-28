@@ -43,7 +43,7 @@ export const Members = () => {
 					img: "https://i.imgur.com/7k5J7un.jpeg",
 					name: "jude",
 					title: "sewer og",
-					description: "CS2 Streamer | Cars | Peripherals | Green Enjoyer.",
+					description: "cs2 streamer, cars, peripherals & green enjoyer.",
 					twitter: "https://twitter.com/JudeCS2",
 				},
 				{
