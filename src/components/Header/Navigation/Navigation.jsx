@@ -14,6 +14,9 @@ export const Navigation = () => {
 				<li>
 					<a href="/members">Members</a>
 				</li>
+				<li>
+					<a href="/apply">Apply</a>
+				</li>
 			</ul>
 		</nav>
 	);

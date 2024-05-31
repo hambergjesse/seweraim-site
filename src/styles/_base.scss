@@ -118,12 +118,27 @@ body {
 	p,
 	li,
 	a,
+	label,
 	button {
 		font-size: $font-size-mobile;
 		line-height: 18px;
 		font-family: "HELVETICA", cursive;
 		color: $sewer-yellow;
 		font-weight: 500;
+	}
+
+	input,
+	textarea {
+		font-size: $font-size-mobile;
+		line-height: 18px;
+		font-family: "HELVETICA", cursive;
+		border: 1px solid #1b1b1b;
+		color: $sewer-white;
+		border-radius: 15px;
+		font-weight: 500;
+		background: $sewer-black;
+		text-align: center;
+		padding: 7.5px;
 	}
 
 	li {
